@@ -9,8 +9,13 @@ namespace App.Menu {
             int selected = NO_SELECT;
             while (!MenuOptions.Exists(item => item.Number == selected)) {
                 DisplayAllOptions();
-                selected = Int32.Parse(Console.ReadLine());
-                Console.Clear();
+                try {
+                    selected = Int32.Parse(Console.ReadLine());
+                    Console.Clear();
+                } catch (FormatException) {
+                    Console.Clear();
+                    Console.WriteLine("Proszę podać poprawną liczbę!");
+                }
             }
             return selected;
         }
