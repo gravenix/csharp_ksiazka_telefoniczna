@@ -1,4 +1,5 @@
 ﻿using System;
+using App;
 
 namespace molenda_projekt
 {
@@ -6,7 +7,7 @@ namespace molenda_projekt
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            new App.App();
         }
     }
 }
