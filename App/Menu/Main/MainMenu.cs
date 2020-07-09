@@ -7,6 +7,8 @@ namespace App.Menu.Main {
             MenuOptions.Add(new MenuItem(1, "Dodaj Wpis"));
             MenuOptions.Add(new MenuItem(2, "Wyświetl Wpisy"));
             MenuOptions.Add(new MenuItem(3, "Usuń Wpis"));
+            MenuOptions.Add(new MenuItem(4, "Zapisz"));
+            MenuOptions.Add(new MenuItem(5, "Wczytaj"));
             MenuOptions.Add(new MenuItem(0, "Wyjdź"));
         }
     }

@@ -14,5 +14,12 @@ namespace App.PhoneBook {
             if(id < 0 || id > Data.Count-1) return false;
             return Data.Remove(Data[id]);
         }
+        public string Serialize() {
+            string serialized = "";
+            foreach(Contact contact in Data) {
+                serialized += "\n" + contact.Serialize();
+            }
+            return serialized.Substring(1);
+        }
     }
 }
