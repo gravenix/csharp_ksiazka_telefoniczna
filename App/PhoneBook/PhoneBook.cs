@@ -10,5 +10,9 @@ namespace App.PhoneBook {
         public void AddContact(Contact contact) {
             Data.Add(contact);
         }
+        public bool RemoveContact(int id) {
+            if(id < 0 || id > Data.Count-1) return false;
+            return Data.Remove(Data[id]);
+        }
     }
 }

@@ -18,6 +18,8 @@ namespace App.Forms {
                     return value;
                 } catch(InvalidCastException) {
                     Console.WriteLine("Niepoprawny Format!");
+                } catch(FormatException) {
+                    Console.WriteLine("Niepoprawny Format!");
                 }
             }
         }
