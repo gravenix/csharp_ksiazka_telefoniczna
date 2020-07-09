@@ -3,9 +3,12 @@ using System.Collections.Generic;
 
 namespace App.PhoneBook {
     public class PhoneBook {
-        private List<Contact> data = new List<Contact>();
+        public List<Contact> Data{get;}
+        public PhoneBook() {
+            Data = new List<Contact>();
+        }
         public void AddContact(Contact contact) {
-            data.Add(contact);
+            Data.Add(contact);
         }
     }
 }

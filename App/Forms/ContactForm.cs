@@ -14,9 +14,9 @@ namespace App.Forms {
             Dictionary<string, string> values = GetValues();
             Contact contact = new Contact();
             contact.FirstName = values.GetValueOrDefault("firstName");
-            contact.FirstName = values.GetValueOrDefault("lastName");
-            contact.FirstName = values.GetValueOrDefault("sex");
-            contact.FirstName = values.GetValueOrDefault("number");
+            contact.LastName = values.GetValueOrDefault("lastName");
+            contact.Sex = values.GetValueOrDefault("sex") == "m" ? Contact.SEX.man : Contact.SEX.woman;
+            contact.PhoneNumber = values.GetValueOrDefault("number");
             return contact;
         }
     }
