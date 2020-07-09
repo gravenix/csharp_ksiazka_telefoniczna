@@ -67,7 +67,7 @@ namespace App {
         private void Save() {
             ChooseFileForm form = new ChooseFileForm();
             string filename =  form.Get();
-            using (StreamWriter writer = new StreamWriter(File.Create($"{filename}.phonebook"))) {
+            using (StreamWriter writer = new StreamWriter(File.OpenWrite($"{filename}.phonebook"))) {
                 writer.Write(book.Serialize());
             }
         }

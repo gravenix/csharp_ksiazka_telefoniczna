@@ -33,11 +33,12 @@ namespace App.PhoneBook {
                 case ACTION_BACK:
                     return;
                 }
+                menu.HideOptions(Data.Count > Offset+Size, Offset-Size >= 0);
             }
         }
 
         private void ViewItems() {
-            int i = 1;
+            int i = Offset + 1;
             int length = Data.Count - Offset;
             if (length > Size) length = Size;
             foreach(Contact contact in Data.GetRange(Offset, length)) {
