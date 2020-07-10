@@ -5,16 +5,23 @@ namespace App.Menu {
     public abstract class AbstractMenu {
         private const int NO_SELECT = 0xFFFFFF;
         protected List<MenuItem> MenuOptions = new List<MenuItem>();
-        public int Ask() {
+
+        /// <summary>Odpytuje uzytkownika, dopoki nie otrzyma poprawnej odpowiedzi</summary>
+        /// <param name="clear">czysci konsole po kliknieciu klawisza</param>
+        /// <param name="redisplay">wyswietla opcje tylko raz</param>
+        /// <returns>wartość, którą wybrał użytkownik</returns>
+        public int Ask(bool clear = true, bool redisplay = true) {
             int selected = NO_SELECT;
+            if (!redisplay) DisplayAllOptions();
             while (!MenuOptions.Exists(item => item.Number == selected)) {
-                DisplayAllOptions();
+                if(redisplay) DisplayAllOptions();
                 try {
-                    selected = Int32.Parse(Console.ReadLine());
-                    Console.Clear();
+                    selected = Int32.Parse(Console.ReadKey(true).KeyChar.ToString());
+                    if(clear) Console.Clear();
                 } catch (FormatException) {
-                    Console.Clear();
-                    Console.WriteLine("Proszę podać poprawną liczbę!");
+                    if (clear) Console.Clear();
+                    else Console.Write("\r");
+                    Console.Write("Proszę podać poprawną liczbę!");
                 }
             }
             return selected;

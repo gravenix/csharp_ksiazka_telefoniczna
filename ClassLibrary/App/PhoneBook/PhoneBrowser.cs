@@ -20,20 +20,22 @@ namespace App.PhoneBook {
 
         public void Browse() {
             while (true) {
+                Console.Clear();
                 ViewItems();
                 Console.WriteLine();
-                int action = menu.Ask();
+                int action = menu.Ask(false, false);
                 switch (action) {
                 case ACTION_NEXT:
-                    if(Offset + Size < Data.Count) Offset += Size;
+                    if(IsNext()) Offset += Size;
                     break;
                 case ACTION_PREV: 
-                    if(Offset - Size >= 0) Offset -= Size;
+                    if(IsPrev()) Offset -= Size;
                     break;
                 case ACTION_BACK:
+                    Console.Clear();
                     return;
                 }
-                menu.HideOptions(Data.Count > Offset+Size, Offset-Size >= 0);
+                menu.HideOptions(IsNext(), IsPrev());
             }
         }
 
@@ -46,5 +48,8 @@ namespace App.PhoneBook {
                 contact.View();
             }
         }
+
+        private bool IsNext() => Offset + Size < Data.Count;
+        private bool IsPrev() => Offset - Size >= 0;
     }
 }

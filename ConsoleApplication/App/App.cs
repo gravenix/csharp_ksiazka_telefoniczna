@@ -70,6 +70,8 @@ namespace App {
             using (StreamWriter writer = new StreamWriter(File.OpenWrite($"{filename}.phonebook"))) {
                 writer.Write(book.Serialize());
             }
+            Console.Clear();
+            Console.WriteLine("Zapisano!");
         }
 
         public void Load() {
@@ -89,6 +91,8 @@ namespace App {
                     book.Data.Add(Contact.Deserialize(line));
                 }
             }
+            Console.Clear();
+            Console.WriteLine("Wczytano!");
         }
     }
 }
