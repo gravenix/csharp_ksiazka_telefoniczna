@@ -1,4 +1,7 @@
-/bin
-/obj/Debug/*
-/obj/project.nuget.cache
-.vscode/
+.vs/
+
+ConsoleApplication/bin/
+ConsoleApplication/obj/
+
+ClassLibrary/bin/
+ClassLibrary/obj/
